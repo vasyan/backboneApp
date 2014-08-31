@@ -2,18 +2,16 @@ define([
   "underscore",
   "jquery",
   "backbone",
+  "utils",
   "text!templates/createNewsForm.html"
-], function(_, $, Backbone, formTemplate) {
-  var validationErrors = {
-    title: "The title must be filled",
-    message: "The message must be filled"
-  };
+], function(_, $, Backbone, utils, formTemplate) {
   var CreateNewFormView = Backbone.View.extend({
     el: ".js-form-container",
     events: {
       "click .js-send": "sendMessage",
       "click .js-clear": "clearInputs",
-      "focus input, textarea": "checkInput"
+      "focus input, textarea": "checkInput",
+      "keypress textarea": "sendByEnter"
     },
     template: _.template(formTemplate),
     initialize: function() {
@@ -33,7 +31,7 @@ define([
         message: this.inputs.message.val()
       };
       this.flushErrors();
-      var isValide = this.validateInputs(formValues);
+      var isValide = utils.inputs.validateInputs(this.$formContainer);
 
       if (isValide) {
         this.trigger("send", formValues);
@@ -41,23 +39,12 @@ define([
           input.val("");
         }, this);
       }
-
     },
-    validateInputs: function(formValues) {
-      var errors = [];
-      _.forEach(formValues, function(value, key) {
-        if (value === "") errors.push(key);
-      });
-
-      if (!_.isEmpty(errors)) this.handleValidationErrors(errors);
-      return _.isEmpty(errors);
-    },
-    handleValidationErrors: function(errors) {
-      this.$formContainer.toggleClass("warning", true);
-      _.forEach(errors, function(error) {
-        this.$formContainer.toggleClass("validation-error-" + error, true);
-        this.inputs[error].closest(".field").toggleClass("error")
-      }, this);
+    sendByEnter: function(event) {
+      var ENTER_KEY = 10;
+      if (event.ctrlKey && event.which === ENTER_KEY) {
+        this.sendMessage();
+      }
     },
     flushErrors: function() {
       _.forEach(this.inputs, function(input) {
@@ -85,7 +72,6 @@ define([
         this.clearInputs(elem);
       }
     }
-
   });
 
   return CreateNewFormView;

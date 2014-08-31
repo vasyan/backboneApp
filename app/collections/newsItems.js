@@ -7,7 +7,9 @@ define([
     model: newsItemModel,
     localStorage: new LocalStorage("NewsStorage"),
     url: "app/data/news.json",
-    comparator: "date",
+    comparator: function(newsItem) {
+      return -newsItem.get("timestamp");
+    },
     refreshFromServer: function() {
       return Backbone.ajaxSync("read", this);
     }

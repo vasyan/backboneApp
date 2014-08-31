@@ -2,7 +2,7 @@ define([
   "underscore",
   "backbone",
   "text!templates/welcome.html"
-], function(_, Backcone, welcomeTemplate) {
+], function(_, Backbone, welcomeTemplate) {
   var Welcome = Backbone.View.extend({
     el: ".content-column",
     template: _.template(welcomeTemplate),

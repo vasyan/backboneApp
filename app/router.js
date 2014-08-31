@@ -1,22 +1,22 @@
 define([
-  'jquery',
-  'underscore',
-  'backbone',
-  'views/appView',
-  'views/newsItemsList'
-], function($, _, Backbone, AppView, newsItemsList, UserListView) {
+  "app",
+  "backbone",
+  "utils",
+  "views/appView",
+], function(app, Backbone, utils, AppView) {
   var AppRouter = Backbone.Router.extend({
     routes: {
       "": "showIndexPage",
-      "news": "showNewsFeed"
+      "signout": "handleSignOut"
     },
 
     // handlers
-    "showIndexPage": function() {
-      console.log("Welcome to Index!");
+    "handleSignOut": function() {
+      utils.signOut();
+      this.navigate("", {trigger: true});
     },
-    "showNewsFeed": function() {
-      console.log("Welcome to NewsFeed!");
+    "showIndexPage": function() {
+      app.appView = new AppView();
     }
   });
 

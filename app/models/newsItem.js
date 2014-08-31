@@ -3,7 +3,7 @@ define([
 ], function(Backbone) {
   var Message = Backbone.Model.extend({
     defaults: {
-      username: "{{Username}}",
+      userName: "{{Username}}",
       date: "{{Date}}",
       title: "{{Title}}",
       message: "{{MessageBody}}"

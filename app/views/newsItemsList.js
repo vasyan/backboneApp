@@ -1,14 +1,13 @@
 define([
   "app",
   "underscore",
-  "jquery",
   "backbone",
+  "utils",
   "collections/newsItems",
   "views/newsListItem",
   "views/createNewsForm",
-  "text!templates/newsItemsList.html",
-  "text!data/news.json"
-], function(app, _, $, Backbone, NewsItemsCollection, NewsListItemView, CreateNewsFormView, newsItemsListTemplate, stubData) {
+  "text!templates/newsItemsList.html"
+], function(app, _, Backbone, utils, NewsItemsCollection, NewsListItemView, CreateNewsFormView, newsItemsListTemplate) {
   var NewsItemsList = Backbone.View.extend({
     el: ".content-column",
     initialize: function() {
@@ -23,7 +22,6 @@ define([
       this.renderItems();
     },
     renderItems: function() {
-      console.log("Render Items");
       this.$el.find(".js-news-list-container").html("");
       var self = this;
       app.newsCollection.fetch();
@@ -49,20 +47,15 @@ define([
       this.renderItems();
     },
     normalizeItem: function(payload){
-      var today = new Date(),
-        dd = today.getDate(),
-        mm = today.getMonth(),
-        yyyy = today.getFullYear();
-
-      if (dd<10) dd='0'+dd;
-      if (mm<10) mm='0'+mm;
-      today = mm+'/'+dd+'/'+yyyy;
+      var regxp = /<\/?[^>]+(>|$)/g,
+        formattedToday = utils.getFormattedDate();
 
       return {
-        title: payload.title,
-        userName: payload.userName || app.userName,
-        date: today,
-        message: payload.message
+        title: payload.title.replace(regxp, ""),
+        userName: payload.userName || app.userId,
+        timestamp: new Date().getTime(),
+        date: formattedToday,
+        message: payload.message.replace(regxp, "")
       };
     }
   });

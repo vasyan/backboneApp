@@ -12,6 +12,10 @@ body {
     height: 100%; }
   .sidebar-menu .sign-in-button {
     width: 100%; }
+  .sidebar-menu .form .error-message.item {
+    display: none; }
+  .sidebar-menu .sign-in-error .error-message.item {
+    display: block; }
 
 .feed .warning-validation-title, .feed .warning-validation-message {
   display: none; }
