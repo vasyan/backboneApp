@@ -1,0 +1,12 @@
+{
+  "name": "test messageboard",
+  "dependencies": {
+    "semantic": "~0.19.0",
+    "lodash": "~2.4.1",
+    "lodash-template-loader": "~0.1.6",
+    "backbone": "~1.1.2",
+    "backbone.localStorage": "~1.1.13",
+    "jquery": "~2.1.1",
+    "requirejs": "~2.1.14"
+  }
+}

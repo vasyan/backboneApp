@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Test Board</title>
+
+  <link rel="stylesheet" href="app/styles/main.css">
+</head>
+
+<body>
+  <main class="layout main-page ui grid">
+    <section class="sidebar-menu">
+      <nav class="ui large vertical menu inverted">
+        <div class="item">
+          <div class="ui form small inverted">
+            <div class="ui left labeled icon input">
+              <input type="text" placeholder="Login">
+              <i class="user icon"></i>
+            </div>
+            <div class="ui left labeled icon input">
+              <input type="text" placeholder="Password">
+              <i class="lock icon"></i>
+            </div>
+            <a class="ui inverted basic button js-sign-in sign-in-button">
+              Sign in
+            </a>
+          </div>
+        </div>
+        <a href="/login" class="item">
+          For users
+        </a>
+        <a href="/guest" class="item">
+          For guest
+        </a>
+      </nav>
+    </section>
+
+    <section class="twelve wide right floated column">
+      <div class="ui feed segment js-feed-container">
+        <div class="ui small form">
+          <div class="field">
+            <label>Title</label>
+            <input type="text">
+            <label>Message</label>
+            <textarea></textarea>
+          </div>
+          <div class="ui small positive submit button">Post</div>
+          <div class="ui small negative button">Clear</div>
+        </div>
+        <div class="ui divider"></div>
+        <h2 class="ui header">
+          News Feed
+        </h2>
+        <div class="event">
+          <div class="label">
+            <i class="circular comment icon"></i>
+          </div>
+          <div class="content">
+            <div class="date">
+              {{Date}}
+            </div>
+            <div class="summary">
+            <a>{{UserName}}</a> added post
+            </div>
+            <h2 class="header">Title</h2>
+            <div class="extra text">
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium repudiandae asperiores blanditiis, quibusdam praesentium aperiam cumque, consectetur placeat corrupti, minima, delectus sunt? Vero magni recusandae architecto, delectus ut, accusamus modi commodi minima. Animi vitae recusandae alias tempora iure accusantium nemo, veniam nulla earum ut voluptatum, illum quaerat voluptatem ipsam molestiae deleniti expedita consequuntur odit officiis provident, qui blanditiis explicabo laudantium sunt fugit. Blanditiis error, ducimus rerum et. Quibusdam aspernatur numquam, minima! Aut, laboriosam eum quos at odio adipisci sequi tempore, dolore sint optio recusandae, eius. Odit deserunt sint quaerat tempora dolorum molestiae dignissimos eum rerum illo pariatur alias, ab saepe.
+           </div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="label">
+            <i class="circular comment icon"></i>
+          </div>
+          <div class="content">
+            <div class="date">
+              {{Date}}
+            </div>
+            <div class="summary">
+            <a>{{UserName}}</a> added post
+            </div>
+            <h2 class="header">Title</h2>
+            <div class="extra text">
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium repudiandae asperiores blanditiis, quibusdam praesentium aperiam cumque, consectetur placeat corrupti, minima, delectus sunt? Vero magni recusandae architecto, delectus ut, accusamus modi commodi minima. Animi vitae recusandae alias tempora iure accusantium nemo, veniam nulla earum ut voluptatum, illum quaerat voluptatem ipsam molestiae deleniti expedita consequuntur odit officiis provident, qui blanditiis explicabo laudantium sunt fugit. Blanditiis error, ducimus rerum et. Quibusdam aspernatur numquam, minima! Aut, laboriosam eum quos at odio adipisci sequi tempore, dolore sint optio recusandae, eius. Odit deserunt sint quaerat tempora dolorum molestiae dignissimos eum rerum illo pariatur alias, ab saepe.
+           </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="bower_components/requirejs/require.js"
+    data-main="app/config"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+[
+  {
+    username: "Adnim",
+    date: "Today",
+    title: "Alarm!",
+    message: "Application now working in debbuging mode"
+  },
+  {
+    username: "{{Username}}",
+    date: "{{Date}}",
+    title: "{{Title}}",
+    message: "{{MessageBody}}"
+  },
+  {
+    username: "{{Username}}",
+    date: "{{Date}}",
+    title: "{{Title}}",
+    message: "{{MessageBody}}"
+  },
+  {
+    username: "{{Username}}",
+    date: "{{Date}}",
+    title: "{{Title}}",
+    message: "{{MessageBody}}"
+  }
+]
