@@ -30,7 +30,7 @@ define([
           self.renderOneItem(newsItem);
         });
       } else {
-        this.$el.find(".js-news-list-container").append("<h4 class\"header\">Sorry, there no one news.</h4>");
+        this.$el.find(".js-news-list-container").append("<h4 class\"header\">Sorry, but there is no news now.</h4>");
       }
     },
     renderForm: function() {
